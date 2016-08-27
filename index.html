@@ -29,7 +29,103 @@
     <script type="text/javascript" src="ui/js/blinktheme.js"></script>
 
     <!-- initialize the plugin -->
+		<script type="text/javascript">
+			$(function() {
+				$.supersized({
 
+					// Functionality
+					slide_interval          :   10000,		// Length between transitions
+					transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+					transition_speed		:	1400,		// Speed of transition
+
+					// Components
+					slide_links				:	'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+					slides 					:  	[			// Slideshow Images
+                                  {
+                                      image : '/ui/images/slider101.jpg',
+                                      title : "E-Commerce",
+                                      description:"Mobisoft will build a strategy around your sales goals by utilizating proven market tools  we can intergrate ecommerce solutions to your site 'E- commerce means business We mean business' ",
+                                      url : '#'
+                                  },
+                                                                   {
+                                      image : '/ui/images/slider003.jpg',
+                                      title : 'Networking and security ',
+                                      description:"We offer IT support in Kenya, for those with or without an IT Department we go beyond firewalls amd anti viruses",
+                                      url : '#'
+                                  },
+                         {
+                                      image : '/ui/images/mobile.jpeg',
+                                      title : 'Mobile App Development',
+                                      description:"'Lets put your business in customers pockets. ' " + "\n" + " Come on lets make the best of now",
+                                      url : '#'
+                                  },
+                                  {
+                                      image : '/ui/images/web.jpg',
+                                      title : 'Web-Development',
+                                      description:"Pop in /n let's discuss your project",
+                                      url : '#'
+                                  },
+
+												]
+
+				});
+
+        $('#nextSlide').click(function() {
+		    	api.nextSlide();
+		    });
+
+		    $('#prevSlide').click(function() {
+		    	api.prevSlide();
+		    });
+
+        $('#right-nav img').click(function() {
+          var position = $("img").index(this);
+          api.goTo(position-1);
+        });
+        if ($(window).width() < 480) {
+          if ($(window).height() > 635) {
+            $('.home .footer-container').css('position', 'fixed');
+
+          } else {
+            var headerSize = $('.header-container').height();
+            $('#left-nav').css('top', headerSize + 20);
+            $('#left-nav').css('margin-top', 0);
+            $('#right-nav').css('top', headerSize + 20);
+            $('#right-nav').css('margin-top', -20);
+          }
+        }
+
+        $(window).resize(function() {
+          console.log($(window).height());
+          if ($(window).width() < 480) {
+            if ($(window).height() > 635) {
+              $('.home .footer-container').css('position', 'fixed');
+              var headerSize = $('.header-container').height();
+              $('#left-nav').css('top', '50%');
+              $('#left-nav').css('margin-top', '-30.5px');
+              $('#right-nav').css('top', '50%');
+              $('#right-nav').css('margin-top', '-40.5px');
+            } else {
+              $('.home .footer-container').css('position', 'relative');
+              var headerSize = $('.header-container').height();
+              $('#left-nav').css('top', headerSize + 20);
+              $('#left-nav').css('margin-top', 0);
+              $('#right-nav').css('top', headerSize + 20);
+              $('#right-nav').css('margin-top', 0);
+
+            }
+          } else {
+            $('.home .footer-container').css('position', 'fixed');
+            var headerSize = $('.header-container').height();
+            $('#left-nav').css('top', '50%');
+            $('#left-nav').css('margin-top', '-30.5px');
+            $('#right-nav').css('top', '50%');
+            $('#right-nav').css('margin-top', '-40.5px');
+          }
+        });
+
+			});
+		</script>
 
     </head>
     <body class="home">
@@ -111,16 +207,7 @@
                     <li data-balloon-length="fit" data-balloon="sms marketing, email marketing, social media marketing, E-Catalogs, e-brochures,SEA, SEO" data-balloon-pos="up">&nbsp;&nbsp;&nbsp;<a href="">Digital Marketing  </a>&nbsp;&nbsp;&nbsp;|</li>
                     <li data-balloon-length="fit" data-balloon="Penetration testing, networking" data-balloon-pos="up">&nbsp;&nbsp;&nbsp;<a href="">Network & Securities</a>&nbsp;&nbsp;&nbsp;|</li>
                     <li>&nbsp;&nbsp;&nbsp;<a href=""> VOIP Solutions</a>&nbsp;&nbsp;&nbsp;</li>
-                       <script>
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-</script> <li>&nbsp;&nbsp;&nbsp;<a href=""> Mobile App development</a>&nbsp;&nbsp;&nbsp;</li>
+                    <li>&nbsp;&nbsp;&nbsp;<a href=""> Mobile App development</a>&nbsp;&nbsp;&nbsp;</li>
                 </ul>
             </footer>
         </div>
@@ -129,7 +216,16 @@ function myFunction() {
         /* When the screen is less than 680 pixels wide, hide all list items, except for the first one ("Home"). Show the list item that contains the link to open and close the topnav (li.icon) */
         </style>
 
-
+        <script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
 
 
 <script src="ui/js/clipboard.min.js"></script>
