@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    	<title>Blink Software - Contact Us</title>
+        <meta name="description" content="">
+        <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+
+        <link rel="icon" type="image/ico" href="ui/images/blink_favicon.png"/>
+	 	<link href='http://fonts.googleapis.com/css?family=Raleway:600|Source+Sans+Pro:200' rel='stylesheet' type='text/css'>		
+        <link rel="stylesheet" href="ui/css/normalize.min.css">
+        <link rel="stylesheet" href="ui/css/main.css?v=1">
+        <link href="ui/js/vendor/slider.css" media="all" rel="stylesheet" type="text/css">
+
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <script src="ui/js/main.js"></script>
+
+        <script src="ui/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script type="text/javascript" src="ui/js/vendor/touchSwipe.min.js"></script>
+
+
+    </head>
+    <body >
+
+        <!--[if lt IE 9]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="header-container">
+            <header class="set-wrapper clearfix">
+                 <a href="index.html"><img class="logo" src="ui/images/logo.png" /></a>
+                <nav>
+                    <ul>
+                        <li><a href="projects">PROJECTS</a></li>
+                        <li><a href="services">SERVICES</a></li>
+                        <li><a href="jobs">JOBS</a></li>
+                        <li><a href="contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+
+            <div class="main full-wrapper clearfix">
+
+     
+<script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="ui/js/jquery.gmap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("#responsive_map").gMap({
+		 maptype: google.maps.MapTypeId.ROADMAP, 
+		 zoom: 16, 
+		 markers: [{
+			 latitude: 40.762077, 
+			 longitude: -111.903012, 
+			 html: "<img src='ui/images/logo-black.png'><br/>324 South 400 West Ste 100 Salt Lake City, Utah 84101-1157<strong></strong>", 
+			 popup: false, 
+			 flat: true, 
+			 icon: { 
+				 image: "/ui/images/contact/icon.png", 
+				 iconsize: [149, 149], 
+				 iconanchor: [74, 74], 
+				 shadow: '', 
+				 shadowsize: [50, 50], 
+				 shadowanchor: null}
+				} 
+			], 
+		 panControl: false, 
+		 zoomControl: true, 
+		 mapTypeControl: false, 
+		 scaleControl: false, 
+		 streetViewControl: true, 
+		 scrollwheel: false, 
+		 styles: [ { "stylers": [ { "hue": "#cccccc" }, { "gamma": 1.58 }, { "saturation": -100 } ] } ], 
+		 onComplete: function() {
+			 // Resize and re-center the map on window resize event
+			 var gmap = $("#responsive_map").data('gmap').gmap;
+			 window.onresize = function(){
+				 google.maps.event.trigger(gmap, 'resize');
+				 $("#responsive_map").gMap('fixAfterResize');
+			 };
+		}
+	});
+
+	$('#submit-btn').click(function(e){
+		$.post('/contact/send_contact', $("#contact-form").serialize(), function(data) {
+		  console.log((data));
+		  $('#form-back').html('<h2>'+data.message+'</h2><br /><br /><br />');
+		});
+		e.preventDefault();
+	});
+});
+</script>
+<h1 class="page-head">We'd love to hear from you.</h1>
+<div class="scroller-content">
+	<div class="top-icon">
+		<img src="ui/images/contact/top-icon.jpg">
+	</div>
+	<div class="inner-wrapper clearfix">
+		<h3 class="services">
+			Blink is located in downtown Salt Lake City, Utah and <br />
+			has been developing software since 2007
+		</h3>
+		<p class="services">
+			We specialize in custom applications for the web, desktop, and mobile devices. We have worked with a number of large, international companies as well as small, local shops. We love making great software and always strive to deliver a superior product to our clients.
+		</p>
+		
+	</div>
+
+
+
+</div>
+
+<div id="responsive_map"></div>
+
+
+
+	<div class="blue-bottom">
+		<div class="inner-wrapper clearfix">
+		<h2>Contact us.</h2>
+		<p>
+			If you are interested in getting a quote for your next project please fill out our online contact form and we will get back to you as soon as possible.<br /> <br />
+Email: <a class="info_link" href="mailto:info@blinkss.com">info@blinkss.com</a><br /><br />
+
+324 South 400 West Ste 100<br />
+Salt Lake City, UT 84101-1157<br />
+801-657-5684<br />
+		</p>
+	</div>
+
+		<div id="form-back">
+	<div class="wrapper clearfix">
+
+
+		<a name="form-location"></a>
+		<form id="contact-form" name="contact-form" method="POST">
+			<input name="company" class="text" type="text" placeholder="Company Name"><br />
+			<input name="full_name" class="text" type="text" placeholder="Name"><br />
+			<input name="phone" class="text" type="text" placeholder="Phone"><br />
+			<input name="email" class="text" type="text" placeholder="Email"><br />
+			<textarea name="product" class="textarea" placeholder="Product Information"></textarea><br />
+			<a href="contact#" class="orange" id="submit-btn">
+				Submit
+			</a>
+		</form>
+	</div>
+</div>
+	</div>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="set-wrapper clearfix">
+                <h3>&copy 2016 Blink Software, Inc</h3>
+                  <ul>
+                    <li>&nbsp;&nbsp;&nbsp;<a href="services/custom_software">Custom Software</a>&nbsp;&nbsp;&nbsp;|</li>
+                    <li>&nbsp;&nbsp;&nbsp;<a href="services/web_apps_design">Web Apps & Design</a>&nbsp;&nbsp;&nbsp;|</li>
+                    <li>&nbsp;&nbsp;&nbsp;<a href="services/iphone_android_development">iPhone & Android</a>&nbsp;&nbsp;&nbsp;|</li>
+                    <li>&nbsp;&nbsp;&nbsp;<a href="services/cloud_computing">Cloud Computing</a>&nbsp;&nbsp;&nbsp;</li>
+                </ul>
+            </footer>
+        </div>
+
+        <script>
+$(window).scroll(function() {
+    if($(window).scrollTop()>250){
+        $('.page-head').hide();
+    }else{
+        $('.page-head').show();
+    }
+ });
+
+
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
