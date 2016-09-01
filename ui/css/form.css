@@ -1,0 +1,33 @@
+@font-face {
+    font-family: Nexa;
+    src: url(../fonts/NexaLight.otf);
+}
+
+html, body, .container {
+	height: 100%;
+    font-family:Nexa;
+
+}
+
+body {
+/*
+	background: #3b3f45;
+	color: #fff;
+*/
+	font-weight: 400;
+	font-size: 1em;
+	overflow: hidden;
+	overflow-y: scroll;
+	min-height: 590px;
+}
+
+a {
+	color: rgba(0,0,0,0.3);
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
